@@ -1,0 +1,18 @@
+[package]
+name = "hooks-guru"
+version = "0.1.0"
+edition = "2024"
+description = "husky + lint-staged for Rust - install git hooks and run commands on staged files from a TOML config, with picomatch-compatible globs and a backup stash around partially staged files"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/StarcevAlexander/hooks-guru"
+homepage = "https://github.com/StarcevAlexander/hooks-guru"
+readme = "README.md"
+keywords = ["git", "hooks", "lint-staged", "pre-commit", "husky"]
+categories = ["development-tools", "command-line-interface"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+toml = { version = "0.9", features = ["preserve_order"] }
+
+[dev-dependencies]
+serde_json = "1"
