@@ -109,7 +109,9 @@ fn quote(value: &str) -> String {
 #[cfg(unix)]
 fn make_executable(path: &Path) -> io::Result<()> {
     use std::os::unix::fs::PermissionsExt;
-    fs::set_permissions(path, fs::metadata(path)?.permissions().with_mode(0o755))
+    let mut permissions = fs::metadata(path)?.permissions();
+    permissions.set_mode(0o755);
+    fs::set_permissions(path, permissions)
 }
 
 #[cfg(not(unix))]
